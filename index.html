@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAbmSgUeA83ATbTmUSrTEIp5OONu2pQnMrORvrC8k4h0whl_pBpgbTE56Fk4F6t4h45Lhdk_jB-3VtGbk&components=hosted-buttons&enable-funding=venmo&currency=USD" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -465,9 +466,11 @@
     <section class="cta" id="donate">
       <div class="cta__inner reveal">
         <h2>Empower your community with our mission</h2>
-        <p>Contact us to learn how you can get involved. IncludEdU is a 501(c)(3) nonprofit — your donation is tax-deductible and goes directly to programs for youth.</p>
+        <p>IncludEdU is a 501(c)(3) nonprofit — your donation is tax-deductible and goes directly to programs for youth.</p>
+        <div class="donate__paypal">
+          <div id="paypal-container-Y8AAMEU5UE37L"></div>
+        </div>
         <div class="cta__actions">
-          <a class="btn btn--light btn--lg" href="#contact">Donate Now!</a>
           <a class="btn btn--outline-light btn--lg" href="#chapters">Volunteer</a>
         </div>
       </div>
@@ -522,5 +525,13 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      if (window.paypal) {
+        paypal.HostedButtons({ hostedButtonId: "Y8AAMEU5UE37L" })
+          .render("#paypal-container-Y8AAMEU5UE37L");
+      }
+    });
+  </script>
 </body>
 </html>

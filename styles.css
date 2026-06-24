@@ -257,6 +257,9 @@ img, svg { max-width: 100%; }
 .cta h2 { color: #fff; } .cta p { color: rgba(255,255,255,.9); font-size: 1.1rem; }
 .cta__actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
 
+/* ---------- PayPal donate ---------- */
+.donate__paypal { max-width: 400px; margin: 1.5rem auto; }
+
 /* ---------- Contact ---------- */
 .contact { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; max-width: 980px; margin: 0 auto; }
 .contact__form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
