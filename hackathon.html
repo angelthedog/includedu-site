@@ -331,30 +331,20 @@
       .hero-divider { display: none; }
     }
 
-    /* ── Volunteer Banner ─────────────────────────── */
-    .vol-banner {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; flex-wrap: wrap;
-      margin-top: 28px;
-      background: rgba(180,150,230,0.1);
-      border: 1px solid rgba(180,150,230,0.3);
-      border-radius: 12px; padding: 16px 22px;
+    /* ── Top announcement bar ─────────────────────── */
+    .top-announce {
+      background: rgba(180,150,230,0.15);
+      border-bottom: 1px solid rgba(180,150,230,0.25);
+      padding: 11px 32px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; flex-wrap: wrap; font-size: 0.88rem; color: var(--text-sub);
     }
-    .vol-banner__text { display: flex; align-items: center; gap: 12px; font-size: 0.92rem; color: var(--text-sub); }
-    .vol-banner__tag {
-      flex: none;
+    .top-announce__tag {
       background: var(--lavender); color: #09091a;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 2px 9px; border-radius: 20px; flex: none;
     }
-    .vol-banner__btn {
-      flex: none;
-      border: 1px solid rgba(180,150,230,0.5); color: var(--lavender);
-      font-weight: 700; font-size: 0.88rem;
-      padding: 9px 20px; border-radius: 8px;
-      transition: background 0.2s; white-space: nowrap;
-    }
-    .vol-banner__btn:hover { background: rgba(180,150,230,0.1); text-decoration: none; }
+    .top-announce a { color: var(--lavender); font-weight: 600; }
 
     /* ── Volunteer Form ───────────────────────────── */
     .volunteer-section { background: rgba(95,210,198,0.04); }
@@ -420,6 +410,11 @@
   <a href="index.html" style="color:#5fd2c6;font-size:0.88rem;font-weight:600;text-decoration:none;">← Back to IncludEdU</a>
 </div>
 
+<div class="top-announce">
+  <span class="top-announce__tag">We need you</span>
+  <span>Want to help run this event? We're looking for volunteers — <a href="#volunteer">sign up here →</a></span>
+</div>
+
 <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 <section class="hero">
   <div class="container">
@@ -453,14 +448,7 @@
     <a href="https://includai--2026.devpost.com/" class="btn-primary" target="_blank">Register on Devpost</a>
     <a href="https://discord.gg/bEXbrJxvu" class="btn-outline" target="_blank">Join our Discord</a>
     <a href="#tracks" class="btn-outline">Explore Tracks</a>
-
-    <div class="vol-banner">
-      <div class="vol-banner__text">
-        <span class="vol-banner__tag">We need you</span>
-        <span>Want to help run this event? We're looking for volunteers across outreach, Discord, tech support, judging, and kickoff.</span>
-      </div>
-      <a href="#volunteer" class="vol-banner__btn">Volunteer →</a>
-    </div>
+    <a href="#volunteer" class="btn-outline" style="border-color:rgba(180,150,230,0.5);color:var(--lavender);">Volunteer</a>
 
     <div class="hero-banner">
       <img src="assets/images/hackathon-banner.png" alt="IncludAI: The Neurodiversity Hackathon banner" />
