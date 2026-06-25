@@ -330,6 +330,63 @@
       .hero-meta { flex-direction: column; gap: 16px; }
       .hero-divider { display: none; }
     }
+
+    /* ── Volunteer Form ───────────────────────────── */
+    .volunteer-section { background: rgba(95,210,198,0.04); }
+    .vol-form {
+      max-width: 680px; margin-top: 40px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .vol-field { display: flex; flex-direction: column; gap: 6px; }
+    .vol-field label {
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-dim);
+    }
+    .vol-field input, .vol-field select, .vol-field textarea {
+      background: var(--dark-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px;
+      font: inherit; font-size: 0.95rem; color: var(--text);
+      transition: border-color 0.2s;
+    }
+    .vol-field input:focus, .vol-field select:focus, .vol-field textarea:focus {
+      outline: none; border-color: var(--teal);
+    }
+    .vol-field select option { background: var(--dark-card); }
+    .vol-field textarea { resize: vertical; min-height: 80px; }
+    .vol-roles-label {
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px;
+    }
+    .vol-roles-hint {
+      font-size: 0.82rem; color: var(--teal); margin-bottom: 12px;
+    }
+    .vol-roles-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .vol-role-option {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--dark-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px; cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .vol-role-option:has(input:checked) { border-color: var(--teal); }
+    .vol-role-option input[type=checkbox] {
+      accent-color: var(--teal); width: 16px; height: 16px; flex: none; margin-top: 2px;
+    }
+    .vol-role-option .role-name { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+    .vol-role-option .role-desc { font-size: 0.8rem; color: var(--text-sub); margin-top: 2px; }
+    .vol-error {
+      font-size: 0.85rem; color: var(--coral); display: none; margin-top: -8px;
+    }
+    .vol-submit {
+      align-self: flex-start;
+      background: var(--teal); color: #09091a;
+      font-weight: 700; font-size: 0.95rem; border: none;
+      padding: 14px 32px; border-radius: 8px; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .vol-submit:hover { opacity: 0.88; }
+    @media (max-width: 600px) { .vol-roles-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -819,6 +876,116 @@
     </div>
   </div>
 </section>
+
+<!-- ══════════════════════════ VOLUNTEER SIGN-UP ════════════════════════ -->
+<section class="volunteer-section">
+  <div class="container">
+    <div class="section-label">Volunteer</div>
+    <h2>Help make this hackathon happen</h2>
+    <p class="lead">We're looking for 12–16 volunteers to support the event across five areas. Pick your top two interests and we'll be in touch.</p>
+
+    <form class="vol-form" action="https://formspree.io/f/mnjkjawg" method="POST">
+      <input type="hidden" name="Form Type" value="Volunteer Application — IncludAI Hackathon" />
+
+      <div class="vol-field">
+        <label for="vol-name">Full Name</label>
+        <input id="vol-name" name="Name" type="text" required placeholder="Your name" />
+      </div>
+
+      <div class="vol-field">
+        <label for="vol-email">Email</label>
+        <input id="vol-email" name="Email" type="email" required placeholder="you@example.com" />
+      </div>
+
+      <div class="vol-field">
+        <label for="vol-tz">Time Zone</label>
+        <select id="vol-tz" name="Time Zone" required>
+          <option value="" disabled selected>Select your region</option>
+          <option>Americas (UTC−12 to UTC−3)</option>
+          <option>Europe / Africa (UTC−2 to UTC+3)</option>
+          <option>Asia / Pacific (UTC+4 to UTC+14)</option>
+        </select>
+      </div>
+
+      <div>
+        <div class="vol-roles-label">Top 2 areas of interest</div>
+        <div class="vol-roles-hint">Choose exactly 2</div>
+        <div class="vol-roles-grid" id="vol-roles">
+          <label class="vol-role-option">
+            <input type="checkbox" name="Role" value="Outreach &amp; Marketing" />
+            <div>
+              <div class="role-name">📣 Outreach &amp; Marketing</div>
+              <div class="role-desc">Promote the hackathon on social media and to communities during July</div>
+            </div>
+          </label>
+          <label class="vol-role-option">
+            <input type="checkbox" name="Role" value="Discord Community" />
+            <div>
+              <div class="role-name">💬 Discord Community</div>
+              <div class="role-desc">Welcome participants, answer questions, keep energy up during build week</div>
+            </div>
+          </label>
+          <label class="vol-role-option">
+            <input type="checkbox" name="Role" value="Technical Support" />
+            <div>
+              <div class="role-name">🛠️ Technical Support</div>
+              <div class="role-desc">Help participants with tools, Devpost, GitHub, and AI APIs</div>
+            </div>
+          </label>
+          <label class="vol-role-option">
+            <input type="checkbox" name="Role" value="Judging Coordination" />
+            <div>
+              <div class="role-name">📋 Judging Coordination</div>
+              <div class="role-desc">Organize submissions, liaise with judges, coordinate announcements</div>
+            </div>
+          </label>
+          <label class="vol-role-option">
+            <input type="checkbox" name="Role" value="Kickoff Event" />
+            <div>
+              <div class="role-name">🎤 Kickoff Event</div>
+              <div class="role-desc">Run the virtual opening ceremony and workshops on August 1</div>
+            </div>
+          </label>
+        </div>
+        <div class="vol-error" id="vol-error">Please select exactly 2 areas.</div>
+      </div>
+
+      <div class="vol-field">
+        <label for="vol-why">Anything else you'd like us to know? <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+        <textarea id="vol-why" name="Message" placeholder="Your background, why you want to volunteer, availability..."></textarea>
+      </div>
+
+      <button class="vol-submit" type="submit">Apply to Volunteer</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const boxes = document.querySelectorAll('#vol-roles input[type=checkbox]');
+    const error = document.getElementById('vol-error');
+
+    boxes.forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        const checked = document.querySelectorAll('#vol-roles input:checked');
+        if (checked.length >= 2) {
+          boxes.forEach(function (b) { if (!b.checked) b.disabled = true; });
+        } else {
+          boxes.forEach(function (b) { b.disabled = false; });
+        }
+        error.style.display = 'none';
+      });
+    });
+
+    document.querySelector('.vol-form').addEventListener('submit', function (e) {
+      const checked = document.querySelectorAll('#vol-roles input:checked');
+      if (checked.length !== 2) {
+        e.preventDefault();
+        error.style.display = 'block';
+      }
+    });
+  })();
+</script>
 
 <!-- ═══════════════════════════════ CTA ════════════════════════════════ -->
 <section class="cta-section">
