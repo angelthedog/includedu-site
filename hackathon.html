@@ -903,7 +903,7 @@
   <div class="container">
     <div class="section-label">Volunteer</div>
     <h2>Help make this hackathon happen</h2>
-    <p class="lead">We're looking for volunteers to support the event across five areas. Pick your top two interests and we'll be in touch.</p>
+    <p class="lead">We're looking for volunteers to support the event across five areas. Pick everything that interests you and we'll be in touch.</p>
 
     <form class="vol-form" action="https://formspree.io/f/mnjkjawg" method="POST">
       <input type="hidden" name="Form Type" value="Volunteer Application — IncludAI Hackathon" />
@@ -929,8 +929,8 @@
       </div>
 
       <div>
-        <div class="vol-roles-label">Top 2 areas of interest</div>
-        <div class="vol-roles-hint">Choose exactly 2</div>
+        <div class="vol-roles-label">Areas of interest</div>
+        <div class="vol-roles-hint">Choose all that apply</div>
         <div class="vol-roles-grid" id="vol-roles">
           <label class="vol-role-option">
             <input type="checkbox" name="Role" value="Outreach &amp; Marketing" />
@@ -988,19 +988,13 @@
 
     boxes.forEach(function (cb) {
       cb.addEventListener('change', function () {
-        const checked = document.querySelectorAll('#vol-roles input:checked');
-        if (checked.length >= 2) {
-          boxes.forEach(function (b) { if (!b.checked) b.disabled = true; });
-        } else {
-          boxes.forEach(function (b) { b.disabled = false; });
-        }
         error.style.display = 'none';
       });
     });
 
     document.querySelector('.vol-form').addEventListener('submit', function (e) {
       const checked = document.querySelectorAll('#vol-roles input:checked');
-      if (checked.length !== 2) {
+      if (checked.length === 0) {
         e.preventDefault();
         error.style.display = 'block';
       }
