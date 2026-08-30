@@ -207,6 +207,56 @@ img, svg { max-width: 100%; }
 .hackathon__actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
 .hackathon__note { margin-top: 1.3rem; font-size: .9rem; color: rgba(255,255,255,.75); }
 
+/* ---------- IncludAI results page ---------- */
+.results-hero { position: relative; overflow: hidden; background: var(--tint); }
+.results-hero__bg { position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(55% 70% at 15% 15%, rgba(139,92,246,.20), transparent 62%),
+    radial-gradient(45% 60% at 90% 18%, rgba(236,72,153,.16), transparent 60%),
+    radial-gradient(50% 65% at 75% 100%, rgba(245,158,11,.16), transparent 62%); }
+.results-hero__inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto;
+  padding: clamp(3.8rem, 8vw, 6.5rem) 1.25rem 2rem; text-align: center; }
+.results-hero h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); font-weight: 800; margin: .15em 0 .35em; }
+.results-hero__sub { font-size: clamp(1.08rem, 2vw, 1.35rem); max-width: 720px; margin: 0 auto 1.8rem; color: var(--ink); font-weight: 500; }
+.results-hero__actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+.results-hero__image { position: relative; z-index: 1; max-width: 880px; margin: 1.5rem auto 0; padding: 0 1.25rem clamp(2.5rem, 5vw, 4rem); }
+.results-hero__image img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: block; }
+.results-snapshot { padding-top: clamp(2.5rem, 5vw, 4rem); padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+.results-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.results-stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.4rem 1rem; text-align: center; box-shadow: var(--shadow-sm); }
+.results-stat__number { display: block; font-family: "Sora", sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.25rem);
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1.1; }
+.results-stat__label { display: block; color: var(--ink-soft); font-weight: 600; font-size: .88rem; margin-top: .35rem; }
+.recap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.recap-panel { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow-sm); }
+.recap-panel h3 { color: var(--indigo-700); }
+.results-reflection { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.reflection-card { max-width: 920px; margin: 0 auto; border-radius: var(--radius-lg);
+  padding: clamp(2rem, 4vw, 3rem); color: #fff;
+  background: linear-gradient(135deg, var(--indigo-900), var(--indigo-700) 62%, #6d28d9);
+  box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+.reflection-card::before { content: ""; position: absolute; inset: 0; opacity: .85;
+  background:
+    radial-gradient(45% 70% at 88% 10%, rgba(236,72,153,.30), transparent 65%),
+    radial-gradient(40% 55% at 8% 95%, rgba(245,158,11,.22), transparent 65%); }
+.reflection-card > * { position: relative; z-index: 1; }
+.reflection-card h2 { color: #fff; margin-bottom: .8rem; }
+.reflection-card p { color: rgba(255,255,255,.88); font-size: 1.02rem; }
+.reflection-card .eyebrow { color: rgba(255,255,255,.82); }
+.winner-list { display: grid; gap: 1.25rem; max-width: 980px; margin: 0 auto; }
+.winner-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem); box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
+.winner-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: var(--grad); }
+.winner-card--grand { border-color: rgba(245,158,11,.35); box-shadow: var(--shadow); }
+.winner-card--innovator { border-color: rgba(236,72,153,.35); }
+.winner-card__award { font-size: .76rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--indigo-600); margin-bottom: .5rem; }
+.winner-card h3 { font-size: clamp(1.35rem, 2.8vw, 1.9rem); margin-bottom: .15rem; }
+.winner-card__team { color: var(--ink); font-weight: 700; margin-bottom: 1rem; }
+.winner-card p:last-of-type { margin-bottom: 1.1rem; }
+.winner-card__link { font-family: "Sora", sans-serif; font-weight: 700; }
+.results-cta .eyebrow { margin-bottom: .7rem; }
+
 /* ---------- Split panels ---------- */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 .split__panel { padding: 2.2rem; border-radius: var(--radius-lg); background: var(--tint); border: 1px solid var(--line); }
@@ -414,12 +464,14 @@ img, svg { max-width: 100%; }
   .nav__links a { padding: .6rem 0; }
   .nav__toggle { display: flex; }
   .about__grid, .cards, .cards--3, .split, .quotes, .contact,
-  .feature, .chapters__layout, .gallery { grid-template-columns: 1fr; }
+  .feature, .chapters__layout, .gallery, .recap-grid { grid-template-columns: 1fr; }
   .hackathon__meta { grid-template-columns: 1fr 1fr; }
+  .results-stats { grid-template-columns: repeat(2, 1fr); }
   .team { grid-template-columns: repeat(2, 1fr); }
   .collage img { width: clamp(64px, 20vw, 110px); height: clamp(64px, 20vw, 110px); }
 }
 @media (max-width: 480px) {
   .hero__stats { flex-direction: column; gap: 1rem; }
+  .results-stats { grid-template-columns: 1fr; }
   .team { grid-template-columns: 1fr; }
 }
